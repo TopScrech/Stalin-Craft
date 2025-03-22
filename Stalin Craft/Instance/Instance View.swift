@@ -96,6 +96,12 @@ struct InstanceView: View {
                             Label("Worlds", systemImage: "plus.square.on.square")
                         }
                     
+                    ServerList()
+                        .environmentObject(instance)
+                        .tabItem {
+                            Label("Servers", systemImage: "server.rack")
+                        }
+                    
                     InstanceRuntimeView(instance: instance)
                         .tabItem {
                             Label("Settings", systemImage: "bolt")
@@ -270,12 +276,12 @@ struct InstanceView: View {
             return
         }
         
-        logger.error("Caught error during prelaunch", error: error)
+        logger.error("Caught error during prelaunch", error)
         
         ErrorTracker.instance.error("Caught error during prelaunch", error)
         
         if let cause = error.cause {
-            logger.error("Cause", error: cause)
+            logger.error("Cause", cause)
             
             ErrorTracker.instance.error("Causative error during prelaunch", error)
         }

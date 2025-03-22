@@ -21,7 +21,7 @@ extension ModList {
                         
                         logger.info("File copied successfully to \(targetURL.path)")
                     } catch {
-                        logger.error("Failed to copy file", error: error)
+                        logger.error("Failed to copy file", error)
                         
                         do {
                             _ = try fileManager.replaceItemAt(targetURL, withItemAt: fileURL)
@@ -29,7 +29,7 @@ extension ModList {
                             
                             logger.info("File replaced successfully")
                         } catch {
-                            logger.error("Failed to replace file", error: error)
+                            logger.error("Failed to replace file", error)
                         }
                     }
                 }

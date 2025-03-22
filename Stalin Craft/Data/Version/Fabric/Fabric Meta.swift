@@ -26,7 +26,7 @@ struct FabricMeta {
             do {
                 return try JSONDecoder().decode([FabricLoaderVersion].self, from: data)
             } catch {
-                logger.error("Received malformed response from fabric meta while fetching profile", error: error)
+                logger.error("Received malformed response from fabric meta while fetching profile", error)
                 
                 throw FabricMetaError.loaderVersionsInvalidResponse
             }
@@ -53,7 +53,7 @@ struct FabricMeta {
                 
                 return try JSONDecoder().decode(Version.self, from: data)
             } catch {
-                logger.error("Received malformed response from fabric meta while fetching profile", error: error)
+                logger.error("Received malformed response from fabric meta while fetching profile", error)
                 
                 throw FabricMetaError.profileInvalidResponse
             }

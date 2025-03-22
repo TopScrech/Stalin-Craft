@@ -9,11 +9,11 @@ func findFilePath(_ fileName: String, in directoryPath: String) -> String? {
         if let foundFileName = items.first(where: { $0 == fileName }) {
             return (directoryPath as NSString).appendingPathComponent(foundFileName)
         } else {
-            logger.error("File not found")
+            logger.error("File not found: \(fileName)")
         }
         
     } catch {
-        logger.error("Error reading contents of directory", error: error)
+        logger.error("Error reading contents of directory", error)
     }
     
     return nil
@@ -79,7 +79,7 @@ struct Mod: Identifiable, Hashable {
                 do {
                     try fileManager.removeItem(at: tempDirURL)
                 } catch {
-                    logger.error("Failed to remove temporary directory", error: error)
+                    logger.error("Failed to remove temporary directory", error)
                 }
             }
             

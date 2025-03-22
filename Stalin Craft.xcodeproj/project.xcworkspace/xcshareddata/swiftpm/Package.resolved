@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server/async-http-client",
       "state" : {
-        "revision" : "fb308ee72f3d4c082a507033f94afa7395963ef3",
-        "version" : "1.21.0"
+        "revision" : "a22083713ee90808d527d0baa290c2fb13ca3096",
+        "version" : "1.21.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AzureAD/microsoft-authentication-library-for-objc",
       "state" : {
-        "revision" : "71a4d3c476e5cda907f33f155550faa5ad9a0fb2",
-        "version" : "1.3.2"
+        "revision" : "d2f81ded070ac6452b2a6acb5bc45eb566427fe7",
+        "version" : "1.3.3"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "98e9ff5d9cc163d3567607e26a2fc44426a2ac2b"
+        "revision" : "944c3487f894bf03bb53590d64bd96d65af0e00b"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-http-types",
       "state" : {
-        "revision" : "12358d55a3824bd5fed310b999ea8cf83a9a1a65",
-        "version" : "1.0.3"
+        "revision" : "9bee2fdb79cc740081abd8ebd80738063d632286",
+        "version" : "1.1.0"
       }
     },
     {
@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "fc63f0cf4e55a4597407a9fc95b16a2bc44b4982",
-        "version" : "2.64.0"
+        "revision" : "359c461e5561d22c6334828806cc25d759ca7aa6",
+        "version" : "2.65.0"
       }
     },
     {
@@ -105,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-http2.git",
       "state" : {
-        "revision" : "0904bf0feb5122b7e5c3f15db7df0eabe623dd87",
-        "version" : "1.30.0"
+        "revision" : "c6afe04165c865faaa687b42c32ed76dfcc91076",
+        "version" : "1.31.0"
       }
     },
     {
@@ -123,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-transport-services.git",
       "state" : {
-        "revision" : "6cbe0ed2b394f21ab0d46b9f0c50c6be964968ce",
-        "version" : "1.20.1"
+        "revision" : "38ac8221dd20674682148d6451367f89c2652980",
+        "version" : "1.21.0"
       }
     },
     {
@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system.git",
       "state" : {
-        "revision" : "025bcb1165deab2e20d4eaba79967ce73013f496",
-        "version" : "1.2.1"
+        "revision" : "f9266c85189c2751589a50ea5aec72799797e471",
+        "version" : "1.3.0"
       }
     },
     {

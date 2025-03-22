@@ -54,7 +54,7 @@ final class LauncherData: ObservableObject {
                 logger.info("Loaded \(instances.count) instances")
                 
             } catch {
-                logger.error("Could not load instances", error: error)
+                logger.error("Could not load instances", error)
                 
                 ErrorTracker.instance.error("Could not load instances", error)
             }
@@ -71,7 +71,7 @@ final class LauncherData: ObservableObject {
                 logger.info("Loaded version manifest")
                 
             } catch {
-                logger.error("Could not load version manifest", error: error)
+                logger.error("Could not load version manifest", error)
                 logger.error("Instance creation support is limited")
                 
                 ErrorTracker.instance.error("Could not load version manifest", error)
@@ -89,7 +89,7 @@ final class LauncherData: ObservableObject {
                 logger.info("Loaded preferences")
                 
             } catch {
-                logger.error("Could not load preferences", error: error)
+                logger.error("Could not load preferences", error)
                 logger.error("Using default values")
                 
                 ErrorTracker.instance.error("Could not load preferences", error)
@@ -107,7 +107,7 @@ final class LauncherData: ObservableObject {
                 logger.info("Loaded saved java runtimes")
                 
             } catch {
-                logger.error("Could not load saved java runtimes", error: error)
+                logger.error("Could not load saved java runtimes", error)
                 logger.error("Instance launch support is limited")
                 
                 ErrorTracker.instance.error("Could not load saved java runtimes", error)
@@ -126,7 +126,7 @@ final class LauncherData: ObservableObject {
                 logger.info("Initialized account manager")
                 
             } catch {
-                logger.error("Could not load account manager", error: error)
+                logger.error("Could not load account manager", error)
                 logger.error("Accounts support is limited")
                 
                 ErrorTracker.instance.error("Could not load account manager", error)

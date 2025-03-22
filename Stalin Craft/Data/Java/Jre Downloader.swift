@@ -2,8 +2,8 @@ import Foundation
 
 final class JreDownloader {
     static func download(version: Int) throws {
-        //        let url = URL(string: getUrl(version: version))!
-        //        let data = try Data(contentsOf: url)
+        // let url = URL(string: getUrl(version: version))!
+        // let data = try Data(contentsOf: url)
     }
     
     private static func getUrl(version: Int) -> String {
@@ -28,13 +28,6 @@ final class JreDownloader {
     }
     
     private static var formattedArchitecture: String {
-        let arch = architecture.lowercased()
-        
-        if arch.contains("arm") {
-            return "aarch64"
-        }
-        
-        return "x86_64"
+        architecture.localizedStandardContains("arm") ? "aarch64" : "x86_64"
     }
 }
-

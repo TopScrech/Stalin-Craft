@@ -25,7 +25,7 @@ final class VersionManifest {
         do {
             data = try await URLSession.shared.data(from: url).0
         } catch {
-            logger.error("Could not download version manifest", error: error)
+            logger.error("Could not download version manifest", error)
             
             ErrorTracker.instance.error("Could not download version manifest", error)
             

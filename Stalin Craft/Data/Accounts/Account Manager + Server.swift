@@ -43,7 +43,7 @@ extension AccountManager {
                 logger.info("Started authentication redirect handler server on port 1989")
                 
             } catch {
-                logger.error("Could not start authentication redirect handler server", error: error)
+                logger.error("Could not start authentication redirect handler server", error)
                 logger.error("Adding microsoft accounts support will be limited")
             }
         }

@@ -13,7 +13,7 @@ func unzipModJar(jarFilePath: String, destinationPath: String) -> FabricMod? {
             return decodeFabricMod(path)
         }
     } catch {
-        logger.error("Failed to unzip", error: error)
+        logger.error("Failed to unzip", error)
     }
     
     return nil
@@ -31,7 +31,7 @@ func decodeFabricMod(_ filePath: String) -> FabricMod? {
         let mod = try decoder.decode(FabricMod.self, from: data)
         return mod
     } catch {
-        logger.error("Failed to decode JSON", error: error)
+        logger.error("Failed to decode JSON", error)
         return nil
     }
 }

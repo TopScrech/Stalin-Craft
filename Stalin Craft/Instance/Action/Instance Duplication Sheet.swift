@@ -38,7 +38,7 @@ struct InstanceDuplicationSheet: View {
                             logger.info("Successfully duplicated instance")
                             
                         } catch {
-                            logger.error("Could not duplicate instance \(newName)", error: error)
+                            logger.error("Could not duplicate instance \(newName)", error)
                             
                             ErrorTracker.instance.error("Could not duplicate instance \(newName)", error)
                         }

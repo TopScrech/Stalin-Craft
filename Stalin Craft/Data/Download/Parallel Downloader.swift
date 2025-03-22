@@ -117,7 +117,7 @@ struct ParallelDownloader {
             .joined()
             
         } catch {
-            logger.error("Failed to read file", error: error)
+            logger.error("Failed to read file", error)
             
             return nil
         }

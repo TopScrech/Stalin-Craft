@@ -19,7 +19,7 @@ final class ErrorTracker: ObservableObject {
     
     func error(_ description: String, _ error: Error? = nil) {
         if let error {
-            logger.error(description, error: error)
+            logger.error(description, error)
         } else {
             logger.error("\(description)")
         }

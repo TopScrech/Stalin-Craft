@@ -91,7 +91,7 @@ struct ContentView: View {
                 _ = provider.loadObject(ofClass: URL.self) { folderURL, error in
                     
                     if let error {
-                        logger.error("Error importing an instance", error: error)
+                        logger.error("Error importing an instance", error)
                     }
                     
                     guard let folderURL else {

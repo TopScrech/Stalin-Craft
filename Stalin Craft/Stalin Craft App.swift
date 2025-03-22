@@ -3,9 +3,9 @@ import os
 
 @main
 struct StalinCraftApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     @StateObject private var launcherData = LauncherData()
+    
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
@@ -31,7 +31,7 @@ struct StalinCraftApp: App {
 let logger = Logger(subsystem: "global", category: "Stalin Craft")
 
 extension Logger {
-    func error(_ message: String, error: Error) {
+    func error(_ message: String, _ error: Error) {
         self.error("\(message): \(error.localizedDescription)")
     }
 }
