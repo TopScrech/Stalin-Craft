@@ -73,14 +73,13 @@ struct NewVanillaInstanceView: View {
                             return
                         }
                         
-                        if launcherData.instances.map({ $0.name }).contains(where: { $0.lowercased() == trimmedName.lowercased()}) {
+                        if launcherData.instances.map(\.name).contains(where: { $0.localizedStandardContains(trimmedName) }) {
                             popoverDuplicateName = true
                             return
                         }
                         
                         if !versionManifest.contains(where: { $0 == selectedVersion }) {
                             popoverInvalidVersion = true
-                            
                             return
                         }
                         

@@ -54,17 +54,9 @@ struct AddOfflineAccountView: View {
         let allowedCharacters = CharacterSet.alphanumerics.union(.init(charactersIn: "_"))
         let disallowedWords = ["minecraft", "mojang", "admin", "administrator"]
         
-        if username.count < 3 || username.count > 16 {
-            return false
-        }
-        
-        if !username.allSatisfy({ allowedCharacters.contains(.init(String($0))!) }) {
-            return false
-        }
-        
-        let lowercaseUsername = username.lowercased()
-        
-        if disallowedWords.contains(where: { lowercaseUsername.contains($0) }) {
+        if username.count < 3 || username.count > 16,
+           !username.allSatisfy({ allowedCharacters.contains(.init(String($0))!) }),
+           disallowedWords.contains(where: { username.localizedStandardContains($0) }) {
             return false
         }
         

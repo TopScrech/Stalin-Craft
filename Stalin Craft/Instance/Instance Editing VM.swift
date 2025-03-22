@@ -29,7 +29,7 @@ final class InstanceEditingVM: ObservableObject {
                 return
             }
             
-            if launcherData.instances.map({ $0.name }).contains(where: { $0.lowercased() == trimmedName.lowercased() }) {
+            if launcherData.instances.map(\.name).contains(where: { $0.localizedStandardContains(trimmedName) }) {
                 showDuplicateNamePopover.wrappedValue = true
                 return
             }

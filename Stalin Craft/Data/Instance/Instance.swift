@@ -344,6 +344,6 @@ fileprivate extension URL {
     func isValidImageURL() -> Bool {
         let validExtensions = ["jpg", "jpeg", "png", "gif"]
         
-        return validExtensions.contains(self.pathExtension.lowercased())
+        return validExtensions.contains(pathExtension.lowercased())
     }
 }
