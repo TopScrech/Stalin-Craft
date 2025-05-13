@@ -19,7 +19,7 @@ struct ServerList: View {
             }
             
             readServersDat(at: path)
-            //            print(servers)
+            // print(servers)
         }
     }
 }
@@ -31,19 +31,19 @@ struct Server {
 
 func readServersDat(at path: String) {
     guard let data = FileManager.default.contents(atPath: path) else {
-        print("Failed to load file.")
+        print("Failed to load file")
         return
     }
     
     do {
-        let nbtTags = try parseNBT(data: data)
+        let nbtTags = try parseNBT(data)
         print(nbtTags)
     } catch NBTError.invalidFormat(let reason) {
-        print("Parsing failed: \(reason)")
+        print("Parsing failed:", reason)
     } catch NBTError.unsupportedType(let type) {
-        print("Unsupported NBT type: \(type)")
+        print("Unsupported NBT type:", type)
     } catch {
-        print("An unexpected error occurred: \(error)")
+        print("An unexpected error occurred:", error)
     }
 }
 
@@ -67,7 +67,7 @@ struct NBTTag {
     var value: Any
 }
 
-func parseNBT(data: Data) throws -> [NBTTag] {
+func parseNBT(_ data: Data) throws -> [NBTTag] {
     var tags = [NBTTag]()
     let reader = BinaryDataReader(data: data)
     
@@ -98,7 +98,7 @@ func readValue(ofType type: NBTTagType, with reader: BinaryDataReader) throws ->
         return try reader.readString()
         
     default:
-        throw NBTError.unsupportedType(type: .byte)
+        throw NBTError.unsupportedType(.byte)
     }
 }
 
@@ -116,7 +116,7 @@ class BinaryDataReader {
     
     func readByte() throws -> UInt8 {
         guard offset < data.count else {
-            throw NBTError.invalidFormat(reason: "No bytes available to read at offset \(offset).")
+            throw NBTError.invalidFormat("No bytes available to read at offset \(offset)")
         }
         
         let value = data[offset]
@@ -127,14 +127,15 @@ class BinaryDataReader {
     
     func readInt() throws -> Int {
         guard offset + 4 <= data.count else {
-            print("Debug: Attempting to read Int at offset \(offset) with insufficient data left.")
-            throw NBTError.invalidFormat(reason: "Insufficient data for Int at offset \(offset).")
+            print("Debug: Attempting to read Int at offset \(offset) with insufficient data left")
+            throw NBTError.invalidFormat("Insufficient data for Int at offset \(offset)")
         }
         
         let range = offset..<offset+4
         let value = data.subdata(in: range).withUnsafeBytes { $0.load(as: UInt32.self) }
         let interpretedValue = Int(UInt32(bigEndian: value))
-        print("Debug: Read Int \(interpretedValue) at offset \(offset).")
+        
+        print("Debug: Read Int \(interpretedValue) at offset", offset)
         offset += 4
         
         return interpretedValue
@@ -144,14 +145,14 @@ class BinaryDataReader {
         let length = try readInt()
         
         guard length > 0, offset + length <= data.count else {
-            throw NBTError.invalidFormat(reason: "String length \(length) out of bounds at offset \(offset).")
+            throw NBTError.invalidFormat("String length \(length) out of bounds at offset \(offset)")
         }
         
         let range = offset..<offset+length
         offset += length
         
         guard let string = String(data: data.subdata(in: range), encoding: .utf8) else {
-            throw NBTError.invalidFormat(reason: "Failed to decode string at offset \(offset-length).")
+            throw NBTError.invalidFormat("Failed to decode string at offset \(offset-length)")
         }
         
         return string
@@ -159,6 +160,6 @@ class BinaryDataReader {
 }
 
 enum NBTError: Error {
-    case invalidFormat(reason: String),
-         unsupportedType(type: NBTTagType)
+    case invalidFormat(_ reason: String),
+         unsupportedType(_ type: NBTTagType)
 }

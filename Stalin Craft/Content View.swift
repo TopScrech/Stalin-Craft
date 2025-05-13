@@ -98,7 +98,7 @@ struct ContentView: View {
                         return
                     }
                     
-                    print("Dropped folder URL: \(folderURL)")
+                    print("Dropped folder URL:", folderURL)
                     let destinationURL = FileHandler.instancesFolder
                     
                     do {
@@ -112,7 +112,7 @@ struct ContentView: View {
                         
                         // Copy folder to destination
                         try fileManager.copyItem(at: folderURL, to: destinationFolderURL)
-                        print("Folder successfully copied to \(FileHandler.instancesFolder)")
+                        print("Folder successfully copied to", FileHandler.instancesFolder)
                         
                         do {
                             let newInstance = try Instance.loadFromDirectory(folderURL)
@@ -135,7 +135,7 @@ struct ContentView: View {
                             )
                         }
                     } catch {
-                        print("Error copying folder: \(error)")
+                        print("Error copying folder:", error)
                     }
                 }
             }

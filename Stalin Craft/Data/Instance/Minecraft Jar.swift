@@ -6,9 +6,7 @@ struct MinecraftJar: Codable {
     var sha1: String?
     
     private enum CodingKeys: String, CodingKey {
-        case type,
-             url,
-             sha1
+        case type, url, sha1
     }
     
     init(type: FileType, url: URL?, sha1: String?) {
