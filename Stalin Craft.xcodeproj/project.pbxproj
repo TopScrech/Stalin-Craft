@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -314,21 +314,17 @@
 /* Begin PBXFrameworksBuildPhase section */
 		649C8DCF297D5ABE000352F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		64C334D22922523600BB8570 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				64515B732A78DF34000D17A8 /* FileWatcher in Frameworks */,
 				F337D6272BBEEA8C004B52C5 /* ScrechKit in Frameworks */,
 				64FC5B292A5805FB009D0050 /* Zip in Frameworks */,
 				64FA2A922A0F73BD0042A4A7 /* Swifter in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -609,8 +605,8 @@
 		64C334D72922523600BB8570 /* Stalin Craft */ = {
 			isa = PBXGroup;
 			children = (
-				64C334DC2922523F00BB8570 /* Assets.xcassets */,
 				64C334E12922523F00BB8570 /* Stalin Craft.entitlements */,
+				64C334DC2922523F00BB8570 /* Assets.xcassets */,
 				F337D6282BBF1961004B52C5 /* Localizable.xcstrings */,
 				F3CF21F72BBF4D3D00AB74DC /* PrivacyInfo.xcprivacy */,
 				64C334D82922523600BB8570 /* Stalin Craft App.swift */,
@@ -788,8 +784,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "Stalin Craft";
 			packageProductDependencies = (
 				64FA2A912A0F73BD0042A4A7 /* Swifter */,
@@ -809,7 +803,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					649C8DD1297D5ABE000352F2 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -842,7 +836,7 @@
 				64515B712A78DF34000D17A8 /* XCRemoteSwiftPackageReference "FileWatcher" */,
 				F337D6252BBEEA8C004B52C5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 64C334D62922523600BB8570 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -856,14 +850,11 @@
 /* Begin PBXResourcesBuildPhase section */
 		649C8DD0297D5ABE000352F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		64C334D32922523600BB8570 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F337D6292BBF1961004B52C5 /* Localizable.xcstrings in Resources */,
 				64C33509292272F600BB8570 /* .gitignore in Resources */,
@@ -871,22 +862,18 @@
 				F3CF21F82BBF4D3D00AB74DC /* PrivacyInfo.xcprivacy in Resources */,
 				64C334DD2922523F00BB8570 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		649C8DCE297D5ABE000352F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F33678212BC75AB60083E21C /* Java Tests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		64C334D12922523600BB8570 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				6484458C2A10F6BC00049986 /* Account Manager + Server.swift in Sources */,
 				64CE1092297864A700366372 /* Image Logo Picker View.swift in Sources */,
@@ -1022,7 +1009,6 @@
 				6484457E2A10D12400049986 /* Xsts Auth.swift in Sources */,
 				F388DEDE2BC844FB002E7616 /* World Card.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -1035,14 +1021,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		649C8DD9297D5ABE000352F2 /* Debug */ = {
+		649C8DD9297D5ABE000352F2 /* Debug configuration for PBXNativeTarget "Stalin Craft Tests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1059,14 +1044,13 @@
 			};
 			name = Debug;
 		};
-		649C8DDA297D5ABE000352F2 /* Release */ = {
+		649C8DDA297D5ABE000352F2 /* Release configuration for PBXNativeTarget "Stalin Craft Tests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1082,7 +1066,7 @@
 			};
 			name = Release;
 		};
-		64C334F82922524000BB8570 /* Debug */ = {
+		64C334F82922524000BB8570 /* Debug configuration for PBXProject "Stalin Craft" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1119,6 +1103,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1147,7 +1132,7 @@
 			};
 			name = Debug;
 		};
-		64C334F92922524000BB8570 /* Release */ = {
+		64C334F92922524000BB8570 /* Release configuration for PBXProject "Stalin Craft" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1184,6 +1169,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1205,7 +1191,7 @@
 			};
 			name = Release;
 		};
-		64C334FB2922524000BB8570 /* Debug */ = {
+		64C334FB2922524000BB8570 /* Debug configuration for PBXNativeTarget "Stalin Craft" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -1217,10 +1203,9 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1255,7 +1240,7 @@
 			};
 			name = Debug;
 		};
-		64C334FC2922524000BB8570 /* Release */ = {
+		64C334FC2922524000BB8570 /* Release configuration for PBXNativeTarget "Stalin Craft" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -1267,10 +1252,9 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1306,28 +1290,25 @@
 		649C8DD8297D5ABE000352F2 /* Build configuration list for PBXNativeTarget "Stalin Craft Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				649C8DD9297D5ABE000352F2 /* Debug */,
-				649C8DDA297D5ABE000352F2 /* Release */,
+				649C8DD9297D5ABE000352F2 /* Debug configuration for PBXNativeTarget "Stalin Craft Tests" */,
+				649C8DDA297D5ABE000352F2 /* Release configuration for PBXNativeTarget "Stalin Craft Tests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		64C334D02922523500BB8570 /* Build configuration list for PBXProject "Stalin Craft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				64C334F82922524000BB8570 /* Debug */,
-				64C334F92922524000BB8570 /* Release */,
+				64C334F82922524000BB8570 /* Debug configuration for PBXProject "Stalin Craft" */,
+				64C334F92922524000BB8570 /* Release configuration for PBXProject "Stalin Craft" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		64C334FA2922524000BB8570 /* Build configuration list for PBXNativeTarget "Stalin Craft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				64C334FB2922524000BB8570 /* Debug */,
-				64C334FC2922524000BB8570 /* Release */,
+				64C334FB2922524000BB8570 /* Debug configuration for PBXNativeTarget "Stalin Craft" */,
+				64C334FC2922524000BB8570 /* Release configuration for PBXNativeTarget "Stalin Craft" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
