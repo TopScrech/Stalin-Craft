@@ -1,9 +1,6 @@
 # Stalin Craft
 
-A native minecraft launcher for macOS. Built using Swift and SwiftUI
-
-## Discuss
-Open/join a discussion
+Native macOS Minecraft launcher. Built with SwiftUI
 
 ## Roadmap
 Latest version - 0.1.0
