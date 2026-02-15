@@ -1,33 +1,58 @@
 import Foundation
 
 final class ArgumentProvider {
-    var values: [String:String] = [:]
+    var values: [String: String] = [:]
     
     init() {
         
     }
     
     func accept(_ str: [String]) -> [String] {
-        var visited: [String] = []
+        str.map {
+            replaceVariables(in: $0)
+        }
+    }
+    
+    private func replaceVariables(in str: String) -> String {
+        guard let regex = try? NSRegularExpression(pattern: #"\$\{([^}]+)\}"#) else {
+            return str
+        }
         
-        for component in str {
-            if component[component.startIndex] != "$" {
-                visited.append(component)
+        let nsRange = NSRange(str.startIndex..<str.endIndex, in: str)
+        let matches = regex.matches(in: str, range: nsRange)
+        
+        if matches.isEmpty {
+            return str
+        }
+        
+        var replaced = str
+        
+        for match in matches.reversed() {
+            guard let placeholderRange = Range(match.range(at: 0), in: replaced),
+                  let variableRange = Range(match.range(at: 1), in: str) else {
                 continue
             }
             
-            let variable = String(component.dropFirst(2).dropLast())
+            let variable = String(str[variableRange])
             
-            if let value = values[variable] {
-                visited.append(value)
+            guard let value = values[variable] else {
+                continue
             }
+            
+            replaced.replaceSubrange(placeholderRange, with: value)
         }
         
-        return visited
+        return replaced
     }
     
     func clientId(_ clientId: String) {
         values["clientId"] = clientId
+        values["clientid"] = clientId
+    }
+    
+    func launcher(name: String, version: String) {
+        values["launcher_name"] = name
+        values["launcher_version"] = version
     }
     
     func xuid(_ xuid: String) {
@@ -58,6 +83,12 @@ final class ArgumentProvider {
     
     func nativesDir(_ directory: String) {
         values["natives_directory"] = directory
+    }
+    
+    func classpath(_ classpath: String) {
+        values["classpath"] = classpath
+        values["classpath_separator"] = ":"
+        values["library_directory"] = FileHandler.librariesFolder.path
     }
     
     func uuid(_ uuid: UUID) {

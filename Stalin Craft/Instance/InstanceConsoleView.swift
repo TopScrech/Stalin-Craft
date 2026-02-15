@@ -35,6 +35,7 @@ struct InstanceConsoleView: View {
                                 .id(message)
                         }
                     }
+                    .textSelection(.enabled)
                     .padding(.horizontal)
                     .padding(.vertical, 8)
                     .id(logMessages)
@@ -48,6 +49,9 @@ struct InstanceConsoleView: View {
                 .padding(7)
                 
                 HStack {
+                    Button("Copy everything", systemImage: "doc.on.doc", action: copyAllLogs)
+                        .disabled(logMessages.isEmpty)
+                    
                     Button("Open logs folder") {
                         openInFinderOrCreate(instance.getLogsFolder().path)
                     }
@@ -73,5 +77,14 @@ struct InstanceConsoleView: View {
             
             Spacer()
         }
+    }
+    
+    private func copyAllLogs() {
+        let fullLog = logMessages.joined(separator: "\n")
+        
+        guard !fullLog.isEmpty else { return }
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(fullLog, forType: .string)
     }
 }
