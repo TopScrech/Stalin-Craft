@@ -1,14 +1,10 @@
 #  InnateMC
 
-A native minecraft launcher for macOS. Built using Swift and SwiftUI.
-
-## Discuss
-Join the InnateMC discord server: https://discord.gg/EXJTUsxXbX  
-Or open/join a discussion
+Native macOS Minecraft launcher. Built with SwiftUI
 
 ## Roadmap
-Latest version - 0.1.0  
-Target version - 0.2.0  
+Latest version - 0.1.0
+Target version - 0.2.0
 Check out the [current milestone](https://github.com/InnateMC/InnateMC/milestone/2)
 
 ## Installation
@@ -20,5 +16,4 @@ macOS 12 (Monterey) and above are supported. For an optimal user experience, use
 ## License
 This software is licensed under the GNU General Public License Version 3
 
-
-NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG
