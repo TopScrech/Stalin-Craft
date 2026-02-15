@@ -15,7 +15,7 @@ struct AccountsPreferencesView: View {
             Table(cachedAccountsOnly, selection: $selectedAccountIds) {
                 TableColumn("Name", value: \.username)
                 
-                TableColumn("Type", value: \.type.rawValue)
+                TableColumn("Account type", value: \.type.rawValue)
                     .width(max: 100)
             }
             
