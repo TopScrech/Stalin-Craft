@@ -6,7 +6,7 @@ struct NewVanillaInstanceView: View {
     @Environment(\.dismiss) private var dismiss
     
     @AppStorage("newVanillaInstance.cachedVersion") var cachedVersionId = ""
-    @AppStorage("newVanillaInstance.cachedName") var name = NSLocalizedString("New Instance", comment: "New Instance")
+    @AppStorage("newVanillaInstance.cachedName") var name = ""
     
     @State private var versionManifest: [PartialVersion] = []
     @State private var showSnapshots = false
@@ -14,6 +14,7 @@ struct NewVanillaInstanceView: View {
     @State private var showAlpha = false
     @State private var selectedVersion = PartialVersion.createBlank()
     @State private var versions: [PartialVersion] = []
+    @State private var previouslySelectedVersionNames = Set<String>()
     
     @State private var popoverNoName = false
     @State private var popoverDuplicateName = false
@@ -97,7 +98,8 @@ struct NewVanillaInstanceView: View {
                         
                         do {
                             launcherData.instances.append(try instance.install())
-                            name = NSLocalizedString("New Instance", comment: "New Instance")
+                            name = selectedVersion.version
+                            previouslySelectedVersionNames.insert(selectedVersion.version)
                             cachedVersionId = ""
                             dismiss()
                             
@@ -112,24 +114,65 @@ struct NewVanillaInstanceView: View {
         }
         .task {
             versionManifest = launcherData.versionManifest
+            
+            if !cachedVersionId.isEmpty {
+                previouslySelectedVersionNames.insert(cachedVersionId)
+            }
+            
             recomputeVersions()
         }
         .onReceive(launcherData.$versionManifest) {
             versionManifest = $0
             recomputeVersions()
         }
-        .onChange(of: showAlpha) { _ in
+        .onChange(of: showAlpha) {
             recomputeVersions()
         }
-        .onChange(of: showBeta) { _ in
+        .onChange(of: showBeta) {
             recomputeVersions()
         }
-        .onChange(of: showSnapshots) { _ in
+        .onChange(of: showSnapshots) {
             recomputeVersions()
         }
-        .onChange(of: selectedVersion) { _ in
-            cachedVersionId = selectedVersion.version
+        .onChange(of: selectedVersion) { _, newValue in
+            cachedVersionId = newValue.version
+            applyDefaultName(for: newValue.version)
         }
+    }
+    
+    func applyDefaultName(for version: String) {
+        if shouldFollowSelectedVersionName {
+            name = version
+        }
+        
+        if version != PartialVersion.createBlank().version {
+            previouslySelectedVersionNames.insert(version)
+        }
+    }
+    
+    var shouldFollowSelectedVersionName: Bool {
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if trimmedName.isEmpty {
+            return true
+        }
+        
+        let fallbackDefaultName = NSLocalizedString("New Instance", comment: "New Instance")
+        let normalized = trimmedName.lowercased()
+        
+        if normalized == fallbackDefaultName.lowercased() || normalized == "new instance" {
+            return true
+        }
+        
+        if previouslySelectedVersionNames.contains(trimmedName) {
+            return true
+        }
+        
+        if versions.contains(where: { $0.version == trimmedName }) {
+            return true
+        }
+        
+        return false
     }
     
     func recomputeVersions() {
@@ -156,6 +199,8 @@ struct NewVanillaInstanceView: View {
                 } else if notContained {
                     selectedVersion = newVersions.first!
                 }
+                
+                applyDefaultName(for: selectedVersion.version)
             }
         }
     }
