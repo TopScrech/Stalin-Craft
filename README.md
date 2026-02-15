@@ -1,4 +1,4 @@
-#  InnateMC
+#  StalinCraft
 
 Native macOS Minecraft launcher. Built with SwiftUI
 
